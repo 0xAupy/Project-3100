@@ -4,11 +4,10 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/mongodb.js";
 
 import crimeReportsRoutes from "./routes/crimeReports.routes.js";
-import crimeTypesRoutes from "./routes/crimeTypes.routes.js";
 import commentsRoutes from "./routes/comments.routes.js";
 import usersRoutes from "./routes/users.routes.js";
 
-// import { protectRoute } from "./middleware/auth.middleware.js";
+import { protectRoute } from "./middleware/auth.middleware.js";
 
 dotenv.config();
 connectDB();
@@ -23,7 +22,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/reports", crimeReportsRoutes);
-app.use("/api/crime-types", crimeTypesRoutes);
 app.use("/api/reports/:id/comments", commentsRoutes);
 app.use("/api/users", usersRoutes);
 
