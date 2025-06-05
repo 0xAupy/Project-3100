@@ -7,7 +7,7 @@ import crimeReportsRoutes from "./routes/crimeReports.routes.js";
 import commentsRoutes from "./routes/comments.routes.js";
 import usersRoutes from "./routes/users.routes.js";
 
-import { protectRoute } from "./middleware/auth.middleware.js";
+import protectRoute from "./middleware/auth.middleware.js";
 
 dotenv.config();
 connectDB();
