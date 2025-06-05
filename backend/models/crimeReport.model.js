@@ -16,6 +16,7 @@ const crimeReportSchema = new mongoose.Schema(
         "Homicide",
         "Cybercrime",
         "Domestic Violence",
+        "Road Accident",
         "Other",
       ],
     },
