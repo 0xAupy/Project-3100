@@ -1,0 +1,80 @@
+/* src/pages/ReportDetail.css */
+
+.detail-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.comments-section {
+  margin-top: 32px;
+}
+
+.comment {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+.comment p {
+  margin: 0 0 4px;
+}
+
+.comment small {
+  color: #777;
+}
+
+.comment button {
+  margin-top: 6px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #e74c3c;
+  color: white;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.comment-form textarea {
+  resize: vertical;
+  min-height: 80px;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.comment-form button {
+  margin-top: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+}
+
+.delete-report-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 12px;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.delete-report-btn:hover {
+  opacity: 0.9;
+}
+
+.error {
+  color: #e74c3c;
+  margin-bottom: 12px;
+}

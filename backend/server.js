@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from "cors";
+
 import connectDB from "./config/mongodb.js";
 
 import crimeReportsRoutes from "./routes/crimeReports.routes.js";
@@ -16,6 +18,13 @@ const app = express();
 app.use(express.json());
 
 app.use(cookieParser());
+
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Your Vite frontend URL
+    credentials: true, // Important for cookies/sessions
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("API is running");

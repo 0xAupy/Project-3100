@@ -1,19 +1,70 @@
-import { Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/RegisterPage";
-import ResetPasswordPage from "./pages/ResetPasswordPage";
-import EmailVerifyPage from "./pages/EmailVerifyPage";
-
-import "./App.css";
+// src/App.jsx
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider, AuthContext } from "./context/AuthContext";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import VerifyEmail from "./pages/VerifyEmail";
+import ResetPassword from "./pages/ResetPassword";
+import Home from "./pages/Home";
+import NewReport from "./pages/NewReport";
+import ReportDetail from "./pages/ReportDetail";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/reset-password" element={<ResetPasswordPage />} />
-      <Route path="/email-verify" element={<EmailVerifyPage />} />
-    </Routes>
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          {/* public */}
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+
+          {/* protected */}
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/reports/new"
+            element={
+              <PrivateRoute>
+                <NewReport />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/reports/:id"
+            element={
+              <PrivateRoute>
+                <ReportDetail />
+              </PrivateRoute>
+            }
+          />
+
+          {/* fallback */}
+          <Route
+            path="*"
+            element={
+              <AuthContext.Consumer>
+                {({ user }) =>
+                  user ? (
+                    <Navigate to="/" replace />
+                  ) : (
+                    <Navigate to="/login" replace />
+                  )
+                }
+              </AuthContext.Consumer>
+            }
+          />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
