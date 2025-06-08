@@ -43,7 +43,7 @@ export default function Login() {
             <Shield size={28} color="white" />
           </div>
           <h1>Crime Alert</h1>
-          <p>Stay updated and safe from crimes around you</p>
+          <p>Stay alert and stay safe from crimes around you</p>
         </div>
 
         <div className="stats-banner">
@@ -101,7 +101,7 @@ export default function Login() {
           {error && <p className="error-text">{error}</p>}
 
           <button type="submit" className="submit-btn">
-            Sign In to Dashboard
+            Log In to Dashboard
           </button>
 
           <p className="form-footer">
