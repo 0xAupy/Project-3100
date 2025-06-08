@@ -25,7 +25,7 @@ body {
   align-items: center;
   padding: 1.5rem;
   width: 100%;
-  max-width: 420px; /* Increased container width */
+  max-width: 400px;
 }
 
 /* Header */
@@ -45,7 +45,6 @@ body {
 .login-header h1 {
   margin: 0;
   font-size: 1.8rem;
-  font-weight: bold;
 }
 
 .login-header p {

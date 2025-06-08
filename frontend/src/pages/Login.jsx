@@ -43,7 +43,7 @@ export default function Login() {
             <Shield size={28} color="white" />
           </div>
           <h1>Crime Alert</h1>
-          <p>Welcome back to your safety dashboard</p>
+          <p>Stay updated and safe from crimes around you</p>
         </div>
 
         <div className="stats-banner">
@@ -105,7 +105,7 @@ export default function Login() {
           </button>
 
           <p className="form-footer">
-            Don’t have an account? <a href="/signup">Sign up here</a>
+            Don’t have an account? <a href="/register">Sign up here</a>
           </p>
         </form>
 
