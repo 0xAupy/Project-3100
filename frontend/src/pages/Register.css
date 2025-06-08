@@ -1,0 +1,20 @@
+/* Register.css */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+.register-form input,
+.register-form button {
+  margin: 8px 0;
+  padding: 8px;
+}
+.error {
+  color: red;
+}

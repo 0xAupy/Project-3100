@@ -23,11 +23,6 @@ const userSchema = new mongoose.Schema(
       length: 6,
       required: true,
     },
-    phone: {
-      // Useful for crime reporting verification
-      type: String,
-      trim: true,
-    },
     verifyOtp: {
       type: String,
       default: "",
