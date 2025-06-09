@@ -284,7 +284,7 @@ body {
   left: 0;
 }
 
-/* Report Section with Red Gradient */
+/* Updated Report Section */
 .report-section {
   padding: 0.5rem 0;
   background: linear-gradient(135deg, #891a1f 0%, #dc3545 100%);
@@ -295,24 +295,23 @@ body {
 .report-content {
   max-width: 600px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .report-icon {
-  color: white;
-  margin-bottom: 1rem;
-  opacity: 0.9;
+  display: none; /* Hide icon for minimal look */
 }
 
 .report-content h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .report-content p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
   opacity: 0.9;
 }
 
@@ -320,17 +319,18 @@ body {
   background: white;
   color: #891a1f;
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .report-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .report-button a {
@@ -338,7 +338,6 @@ body {
   text-decoration: none;
 }
 
-/* Responsive */
 @media (max-width: 968px) {
   .emergency-content {
     grid-template-columns: 1fr;
