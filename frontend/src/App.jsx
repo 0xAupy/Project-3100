@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import NewReport from "./pages/NewReport";
 import ReportDetail from "./pages/ReportDetail";
 import PrivateRoute from "./components/PrivateRoute";
+import SafetyTips from "./pages/SafetyTips";
 
 function App() {
   return (
@@ -43,6 +44,14 @@ function App() {
             element={
               <PrivateRoute>
                 <ReportDetail />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/safety-tips"
+            element={
+              <PrivateRoute>
+                <SafetyTips />
               </PrivateRoute>
             }
           />

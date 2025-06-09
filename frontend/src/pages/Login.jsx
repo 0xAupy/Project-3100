@@ -12,6 +12,7 @@ import {
   Users,
   AlertTriangle,
 } from "lucide-react";
+import logoImage from "../assets/shield.png"; // adjust the path if needed
 
 export default function Login() {
   const { login } = useContext(AuthContext);
@@ -40,8 +41,9 @@ export default function Login() {
       <div className="login-wrapper">
         <div className="login-header">
           <div className="logo-circle">
-            <Shield size={28} color="white" />
+            <img src={logoImage} alt="Logo" className="logo-img" />
           </div>
+
           <h1>Crime Alert</h1>
           <p>Stay alert and stay safe from crimes around you</p>
         </div>
@@ -108,7 +110,6 @@ export default function Login() {
             Don’t have an account? <a href="/register">Sign up here</a>
           </p>
         </form>
-
         <p className="footer-note">
           © 2025 CrimeAlert. Keeping communities safe together.
         </p>

@@ -34,12 +34,10 @@ body {
   margin-bottom: 2rem;
 }
 
-.logo-circle {
-  background: #c62828;
-  padding: 12px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-bottom: 1rem;
+.logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
 }
 
 .login-header h1 {

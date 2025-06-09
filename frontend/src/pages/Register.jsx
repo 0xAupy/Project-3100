@@ -150,6 +150,9 @@ export default function Register() {
             Already have an account? <a href="/login">Log in here</a>
           </p>
         </form>
+        <p className="footer-note">
+          © 2025 CrimeAlert. Keeping communities safe together.
+        </p>
       </div>
     </div>
   );
