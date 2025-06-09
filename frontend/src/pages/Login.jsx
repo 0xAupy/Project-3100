@@ -46,11 +46,11 @@ export default function Login() {
         <div className="stats-banner">
           <div className="stat-item">
             <Users size={16} color="#c62828" />
-            <span>50K+ Active Users</span>
+            <span>10K+ Reports</span>
           </div>
           <div className="stat-item">
             <AlertTriangle size={16} color="#c62828" />
-            <span>Real-time Alerts</span>
+            <span>24/7 Platform Availability</span>
           </div>
         </div>
 

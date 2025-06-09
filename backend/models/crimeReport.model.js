@@ -20,6 +20,11 @@ const crimeReportSchema = new mongoose.Schema(
         "Other",
       ],
     },
+    area: {
+      type: String,
+      trim: true,
+    },
+
     location: {
       type: String,
       required: true,

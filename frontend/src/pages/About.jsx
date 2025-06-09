@@ -91,11 +91,11 @@ export default function About() {
           <div className="container">
             <div className="stats-grid">
               <div className="stat-item">
-                <h3>10,000+</h3>
+                <h3>10K+</h3>
                 <p>Reports Submitted</p>
               </div>
               <div className="stat-item">
-                <h3>50+</h3>
+                <h3>5K+</h3>
                 <p>Communities Served</p>
               </div>
               <div className="stat-item">
@@ -152,6 +152,8 @@ export default function About() {
               sharing safety information.
             </p>
             {/* <button className="cta-button">Get Started</button> */}
+            <br />
+
             <p>© 2025 CrimeAlert. All rights reserved.</p>
           </div>
         </section>
