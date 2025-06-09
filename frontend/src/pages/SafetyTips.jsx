@@ -1,4 +1,3 @@
-// src/pages/SafetyTips.jsx
 export default function SafetyTips() {
   return (
     <div style={{ padding: "2rem" }}>
