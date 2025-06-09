@@ -4,58 +4,63 @@
   padding: 0;
 }
 
-/* Sticky Navbar */
+/* Main Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff5f5;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid #ffdada;
+  background: linear-gradient(135deg, #b02a37 0%, #dc3545 100%);
+  padding: 0.75rem 2rem;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Left Section */
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
-.logo-img {
-  width: 26px;
-  height: 26px;
-  object-fit: contain;
+.warning-icon {
+  color: white;
 }
 
 .navbar-brand {
   font-size: 1.25rem;
   font-weight: bold;
-  color: #c62828;
+  color: white;
+}
+
+/* Center Section */
+.navbar-center {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-center a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-center a:hover {
+  color: #ffcccc;
 }
 
 /* Right Section */
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.5rem;
   overflow: visible;
-}
-
-.navbar-right a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.navbar-right a:hover {
-  color: #b71c1c;
 }
 
 /* Icons */
@@ -63,12 +68,18 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 6px;
-  color: #444;
+  padding: 8px;
+  color: white;
   font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Profile Dropdown */
@@ -83,8 +94,8 @@
   right: 0;
   background: white;
   border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   padding: 1rem;
   min-width: 200px;
   z-index: 1002;
@@ -93,6 +104,7 @@
 .profile-card p {
   margin: 0 0 4px;
   font-size: 0.9rem;
+  color: #333;
 }
 
 .profile-card hr {
@@ -104,13 +116,13 @@
 .profile-card a {
   display: block;
   text-decoration: none;
-  color: #c62828;
+  color: #dc3545;
   font-weight: 500;
   margin-top: 0.25rem;
 }
 
 .profile-card a:hover {
-  color: #b71c1c;
+  color: #b02a37;
   text-decoration: underline;
 }
 
@@ -118,13 +130,38 @@
   margin-top: 0.5rem;
   background: none;
   border: none;
-  color: #c62828;
+  color: #dc3545;
   font-weight: bold;
   cursor: pointer;
   font-size: 0.9rem;
+  padding: 0;
 }
 
 .logout-btn:hover {
-  color: #b71c1c;
+  color: #b02a37;
   text-decoration: underline;
+}
+
+/* Emergency Banner */
+.emergency-banner {
+  background: #901622;
+  color: white;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  position: fixed;
+  top: 60px; /* Adjust based on navbar height */
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+/* Add padding to main content areas to account for fixed navbar + banner */
+.main-content {
+  padding-top: 100px; /* Adjust based on combined height of navbar + banner */
+}
+
+/* Alternative: Add this class to your page containers */
+.page-container {
+  padding-top: 100px;
 }

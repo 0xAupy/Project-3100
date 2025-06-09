@@ -9,6 +9,8 @@ import NewReport from "./pages/NewReport";
 import ReportDetail from "./pages/ReportDetail";
 import PrivateRoute from "./components/PrivateRoute";
 import SafetyTips from "./pages/SafetyTips";
+import About from "./pages/About";
+import "./App.css"; // Import your global styles
 
 function App() {
   return (
@@ -51,6 +53,15 @@ function App() {
             element={
               <PrivateRoute>
                 <SafetyTips />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/about"
+            element={
+              <PrivateRoute>
+                <About />
               </PrivateRoute>
             }
           />

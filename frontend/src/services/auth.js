@@ -36,7 +36,7 @@ export const verifyEmail = (data) => api.post("/users/verify-account", data);
 /**
  * Send password-reset OTP to the user's email
  */
-export const sendResetOtp = () => api.post("/users/send-reset-otp");
+export const sendResetOtp = (data) => api.post("/users/send-reset-otp", data);
 
 /**
  * Reset the user's password using the OTP and new password

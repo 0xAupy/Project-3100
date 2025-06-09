@@ -12,7 +12,7 @@ import {
   Users,
   AlertTriangle,
 } from "lucide-react";
-import logoImage from "../assets/shield.png"; // adjust the path if needed
+import logoImage from "../assets/shield.png";
 
 export default function Login() {
   const { login } = useContext(AuthContext);

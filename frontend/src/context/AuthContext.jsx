@@ -49,7 +49,7 @@ export function AuthProvider({ children }) {
   const verifyEmail = (data) => apiVerifyEmail(data);
 
   /** Send password reset OTP */
-  const sendResetOtp = () => apiSendResetOtp();
+  const sendResetOtp = (email) => apiSendResetOtp({ email });
 
   /** Reset password with OTP */
   const resetPassword = (data) => apiResetPassword(data);
