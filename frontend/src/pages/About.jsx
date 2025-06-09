@@ -145,12 +145,14 @@ export default function About() {
         {/* CTA Section */}
         <section className="cta-section">
           <div className="container">
+            <br />
             <h2>Join Our Community</h2>
             <p>
               Help make your neighborhood safer by reporting incidents and
               sharing safety information.
             </p>
             {/* <button className="cta-button">Get Started</button> */}
+            <p>© 2025 CrimeAlert. All rights reserved.</p>
           </div>
         </section>
       </div>

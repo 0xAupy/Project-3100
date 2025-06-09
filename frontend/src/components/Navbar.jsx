@@ -29,7 +29,7 @@ export default function Navbar() {
 
         <div className="navbar-center">
           <Link to="/">Home</Link>
-          <Link to="/reports/new">Reports</Link>
+          <Link to="/reports/new">Report Crime</Link>
           <Link to="/safety-tips">Safety Tips</Link>
           <Link to="/about">About</Link>
         </div>

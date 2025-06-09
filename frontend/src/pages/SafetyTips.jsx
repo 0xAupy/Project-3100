@@ -332,6 +332,7 @@ export default function SafetyTips() {
         {/* Report Section */}
         <section className="report-section">
           <div className="container">
+            <br />
             <div className="report-content">
               <MapPin size={48} className="report-icon" />
               <h2>Report a Crime or Safety Concern</h2>
@@ -339,9 +340,12 @@ export default function SafetyTips() {
                 If you witness a crime or have safety concerns in your area,
                 report them to help keep your community safe.
               </p>
-              <button className="report-button">
-                <a href="/reports/new"></a>Report Now
-              </button>
+              <a href="/reports/new">
+                <button className="report-button">Report Now</button>
+              </a>
+              <br />
+              <br />
+              <p> © 2025 CrimeAlert. All rights reserved.</p>
             </div>
           </div>
         </section>

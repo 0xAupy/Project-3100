@@ -12,7 +12,6 @@ import {
   Users,
   AlertTriangle,
 } from "lucide-react";
-import logoImage from "../assets/shield.png";
 
 export default function Login() {
   const { login } = useContext(AuthContext);
@@ -40,10 +39,6 @@ export default function Login() {
     <div className="layout-root">
       <div className="login-wrapper">
         <div className="login-header">
-          <div className="logo-circle">
-            <img src={logoImage} alt="Logo" className="logo-img" />
-          </div>
-
           <h1>Crime Alert</h1>
           <p>Stay alert and stay safe from crimes around you</p>
         </div>

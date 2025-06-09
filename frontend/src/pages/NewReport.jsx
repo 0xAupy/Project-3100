@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
+import Navbar from "../components/Navbar";
 import "./NewReport.css";
 
 export default function NewReport() {
@@ -45,50 +46,53 @@ export default function NewReport() {
   };
 
   return (
-    <div className="new-report-container">
-      <form className="new-report-form" onSubmit={handleSubmit}>
-        <h2>Create New Report</h2>
-        {error && <p className="error">{error}</p>}
-        {success && <p className="success">{success}</p>}
+    <>
+      <Navbar />
+      <div className="new-report-container">
+        <form className="new-report-form" onSubmit={handleSubmit}>
+          <h2>Create New Report</h2>
+          {error && <p className="error">{error}</p>}
+          {success && <p className="success">{success}</p>}
 
-        <label htmlFor="crimeType">Crime Type</label>
-        <select
-          id="crimeType"
-          name="crimeType"
-          value={form.crimeType}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Select a type</option>
-          {crimeTypes.map((type) => (
-            <option key={type} value={type}>
-              {type}
-            </option>
-          ))}
-        </select>
+          <label htmlFor="crimeType">Crime Type</label>
+          <select
+            id="crimeType"
+            name="crimeType"
+            value={form.crimeType}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select a type</option>
+            {crimeTypes.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
 
-        <label htmlFor="location">Location</label>
-        <input
-          type="text"
-          id="location"
-          name="location"
-          placeholder="Location"
-          value={form.location}
-          onChange={handleChange}
-          required
-        />
+          <label htmlFor="location">Location</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="Location"
+            value={form.location}
+            onChange={handleChange}
+            required
+          />
 
-        <label htmlFor="description">Description</label>
-        <textarea
-          id="description"
-          name="description"
-          placeholder="Description"
-          value={form.description}
-          onChange={handleChange}
-        />
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Description"
+            value={form.description}
+            onChange={handleChange}
+          />
 
-        <button type="submit">Submit Report</button>
-      </form>
-    </div>
+          <button type="submit">Submit Report</button>
+        </form>
+      </div>
+    </>
   );
 }

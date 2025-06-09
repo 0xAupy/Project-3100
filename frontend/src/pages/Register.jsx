@@ -46,9 +46,6 @@ export default function Register() {
     <div className="layout-root">
       <div className="register-wrapper">
         <div className="register-header">
-          <div className="logo-circle">
-            <Shield size={28} color="white" />
-          </div>
           <h1>Create Your Account</h1>
           <p>Join CrimeAlert and help keep your community safe</p>
         </div>

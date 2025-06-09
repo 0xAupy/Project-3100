@@ -298,7 +298,7 @@ body {
 
 /* Report Section */
 .report-section {
-  padding: 2rem 0;
+  padding: 0.5rem 0;
   background: linear-gradient(
     135deg,
     #1a3c34 0%,
