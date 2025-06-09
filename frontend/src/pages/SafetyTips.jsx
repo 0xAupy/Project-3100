@@ -338,7 +338,7 @@ export default function SafetyTips() {
               <h2>Report a Crime or Safety Concern</h2>
               <p>
                 If you witness a crime or have safety concerns in your area,
-                report them to help keep your community safe.
+                report them.
               </p>
               <a href="/reports/new">
                 <button className="report-button">Report Now</button>
