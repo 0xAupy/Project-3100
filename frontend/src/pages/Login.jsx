@@ -12,7 +12,6 @@ import {
   Users,
   AlertTriangle,
 } from "lucide-react";
-import logoImage from "../assets/shield.png";
 
 export default function Login() {
   const { login } = useContext(AuthContext);
@@ -40,10 +39,6 @@ export default function Login() {
     <div className="layout-root">
       <div className="login-wrapper">
         <div className="login-header">
-          <div className="logo-circle">
-            <img src={logoImage} alt="Logo" className="logo-img" />
-          </div>
-
           <h1>Crime Alert</h1>
           <p>Stay alert and stay safe from crimes around you</p>
         </div>
@@ -51,11 +46,11 @@ export default function Login() {
         <div className="stats-banner">
           <div className="stat-item">
             <Users size={16} color="#c62828" />
-            <span>50K+ Active Users</span>
+            <span>10K+ Reports</span>
           </div>
           <div className="stat-item">
             <AlertTriangle size={16} color="#c62828" />
-            <span>Real-time Alerts</span>
+            <span>24/7 Platform Availability</span>
           </div>
         </div>
 

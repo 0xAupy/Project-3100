@@ -24,12 +24,14 @@ export default function Navbar() {
       <nav className="navbar">
         <div className="navbar-left">
           <AlertTriangle size={24} className="warning-icon" />
-          <span className="navbar-brand">Crime Alert</span>
+          <Link to="/">
+            <span className="navbar-brand">Crime Alert</span>
+          </Link>
         </div>
 
         <div className="navbar-center">
           <Link to="/">Home</Link>
-          <Link to="/reports/new">Reports</Link>
+          <Link to="/reports/new">Report Crime</Link>
           <Link to="/safety-tips">Safety Tips</Link>
           <Link to="/about">About</Link>
         </div>

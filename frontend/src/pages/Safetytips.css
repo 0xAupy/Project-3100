@@ -14,7 +14,7 @@ body {
 }
 
 .safety-tips-page {
-  padding-top: 100px; /* Account for fixed navbar + banner */
+  padding-top: 100px;
   min-height: 100vh;
 }
 
@@ -28,7 +28,7 @@ body {
 /* Safe Section */
 .safe-section {
   background: white;
-  color: #31715c; /* Solid green color (kept as per your CSS) */
+  color: #b02a37;
   padding: 3rem 2rem;
   text-align: center;
 }
@@ -39,7 +39,7 @@ body {
 }
 
 .safe-icon {
-  color: #2a704b; /* Medium green */
+  color: #b02a37;
   margin-bottom: 1rem;
 }
 
@@ -47,19 +47,19 @@ body {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #1a3c34; /* Dark green */
+  color: #891a1f;
 }
 
 .safe-content p {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #2e4d45; /* Muted green */
+  color: #a13232;
 }
 
 /* Main Content */
 .main-content {
   padding: 3rem 0;
-  background: #f2f7f2; /* Light green background */
+  background: #fff5f5;
 }
 
 /* Category Navigation */
@@ -87,17 +87,17 @@ body {
 }
 
 .category-btn:hover {
-  border-color: #2a704b; /* Medium green */
-  color: #2a704b;
+  border-color: #b02a37;
+  color: #b02a37;
   transform: translateY(-2px);
 }
 
 .category-btn.active {
-  background: #2a704b; /* Medium green */
-  border-color: #2a704b;
+  background: #b02a37;
+  border-color: #b02a37;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(42, 112, 75, 0.3); /* Green shadow */
+  box-shadow: 0 4px 12px rgba(176, 42, 55, 0.3);
 }
 
 .category-btn span {
@@ -105,7 +105,7 @@ body {
 }
 
 .category-btn svg {
-  color: #2a704b; /* Medium green */
+  color: #b02a37;
 }
 
 .category-btn:hover svg,
@@ -121,7 +121,7 @@ body {
 
 .category-title {
   font-size: 2rem;
-  color: #1a3c34; /* Dark green */
+  color: #891a1f;
   text-align: center;
   margin-bottom: 2rem;
   font-weight: bold;
@@ -142,7 +142,7 @@ body {
 }
 
 .tip-card:hover {
-  border-color: #2a704b; /* Medium green */
+  border-color: #b02a37;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -153,7 +153,7 @@ body {
 }
 
 .tip-header:hover {
-  background: #f2f7f2; /* Light green */
+  background: #fff5f5;
 }
 
 .tip-header h3 {
@@ -177,7 +177,7 @@ body {
 }
 
 .expand-icon {
-  color: #2a704b; /* Medium green */
+  color: #b02a37;
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
@@ -185,7 +185,7 @@ body {
 .tip-details {
   padding: 0 1.5rem 1.5rem;
   border-top: 1px solid #f0f0f0;
-  background: #f2f7f2; /* Light green */
+  background: #fff5f5;
   animation: slideDown 0.3s ease;
 }
 
@@ -216,7 +216,7 @@ body {
 
 .tip-details li::before {
   content: "•";
-  color: #2a704b; /* Medium green */
+  color: #b02a37;
   font-weight: bold;
   position: absolute;
   left: 0;
@@ -225,8 +225,8 @@ body {
 /* Emergency Section */
 .emergency-section {
   padding: 3rem 0;
-  background: #f8f9fa; /* Whitish background (light grayish-white) */
-  color: #2a704b; /* Medium green for default text */
+  background: #fff0f0;
+  color: #b02a37;
 }
 
 .emergency-content {
@@ -238,72 +238,56 @@ body {
 
 .emergency-text h2 {
   font-size: 2rem;
-  color: #1a3c34; /* Dark green for heading */
+  color: #891a1f;
   margin-bottom: 2rem;
   font-weight: bold;
 }
 
-.emergency-numbers {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .emergency-number {
-  background: white; /* Slightly brighter white for cards */
+  background: white;
   padding: 1rem;
   border-radius: 8px;
-  border-left: 4px solid #2a704b; /* Medium green */
+  border-left: 4px solid #b02a37;
 }
 
 .emergency-number h3 {
   font-size: 1.5rem;
-  color: #1a3c34; /* Dark green */
+  color: #891a1f;
   margin-bottom: 0.25rem;
   font-weight: bold;
 }
 
 .emergency-number p {
-  color: #2a704b; /* Medium green for better contrast */
+  color: #b02a37;
   margin: 0;
 }
 
 .emergency-tips h3 {
   font-size: 1.5rem;
-  color: #1a3c34; /* Dark green */
+  color: #891a1f;
   margin-bottom: 1rem;
   font-weight: bold;
 }
 
-.emergency-tips ul {
-  list-style: none;
-  padding: 0;
-}
-
 .emergency-tips li {
   padding: 0.5rem 0;
-  color: #2a704b; /* Medium green */
-  line-height: 1.6;
+  color: #b02a37;
   position: relative;
   padding-left: 1.5rem;
 }
 
 .emergency-tips li::before {
   content: "✓";
-  color: #1a3c34; /* Dark green for contrast */
+  color: #891a1f;
   font-weight: bold;
   position: absolute;
   left: 0;
 }
 
-/* Report Section */
+/* Report Section with Red Gradient */
 .report-section {
-  padding: 2rem 0;
-  background: linear-gradient(
-    135deg,
-    #1a3c34 0%,
-    #2a704b 100%
-  ); /* Green gradient */
+  padding: 0.5rem 0;
+  background: linear-gradient(135deg, #891a1f 0%, #dc3545 100%);
   color: white;
   text-align: center;
 }
@@ -334,7 +318,7 @@ body {
 
 .report-button {
   background: white;
-  color: #1a3c34; /* Dark green */
+  color: #891a1f;
   border: none;
   padding: 1rem 2rem;
   font-size: 1.1rem;
@@ -354,79 +338,10 @@ body {
   text-decoration: none;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 968px) {
   .emergency-content {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .safe-content h1 {
-    font-size: 2rem;
-  }
-
-  .safe-content p {
-    font-size: 1rem;
-  }
-
-  .category-nav {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .category-btn {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
-  }
-
-  .category-title {
-    font-size: 1.5rem;
-  }
-
-  .tip-header h3 {
-    font-size: 1.1rem;
-  }
-
-  .tip-summary {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .emergency-numbers {
-    gap: 0.75rem;
-  }
-
-  .emergency-number {
-    padding: 0.75rem;
-  }
-
-  .report-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .container {
-    padding: 0 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .safe-section {
-    padding: 2rem 1rem;
-  }
-
-  .main-content {
-    padding: 2rem 0;
-  }
-
-  .tip-header {
-    padding: 1rem;
-  }
-
-  .tip-details {
-    padding: 0 1rem 1rem;
   }
 }
