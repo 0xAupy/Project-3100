@@ -1,20 +1,235 @@
-/* Login.css */
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* Reset & Layout */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #fff5f5, #ffe6e6);
+  color: #333;
 }
-.login-form {
+
+/* Main Container */
+.layout-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to bottom right, #fff5f5, #ffe6e6);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.login-wrapper {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
 }
-.login-form input,
-.login-form button {
-  margin: 8px 0;
+
+/* Header */
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.login-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.login-header p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+/* Stats */
+.stats-banner {
+  display: flex;
+  justify-content: space-between;
+  background: #fff6f6;
+  border: 1px solid #f8d7da;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Form */
+.login-form {
+  background: #ffffffcc;
+  backdrop-filter: blur(4px);
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 480px; /* Increased form width */
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon input {
+  width: 100%;
+  padding: 12px 45px 12px 40px; /* More right padding for eye icon */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  background-color: #ffffff; /* Fixed background color */
+  color: #333;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  height: 44px; /* Fixed height for consistent positioning */
+}
+
+.input-icon input:focus {
+  outline: none;
+  border-color: #c62828;
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+}
+
+.input-icon svg:first-child {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.eye-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition: color 0.2s ease;
+  height: 30px;
+  width: 30px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.eye-toggle:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.eye-toggle:hover {
+  color: #c62828;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-top: -0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.forgot-password a {
+  color: #c62828;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-password a:hover {
+  color: #b71c1c;
+  text-decoration: underline;
+}
+
+/* Button */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #c62828, #b71c1c);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to right, #b71c1c, #880e4f);
+  transform: translateY(-1px);
+}
+
+/* Footer */
+.form-footer {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.form-footer a {
+  color: #c62828;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.form-footer a:hover {
+  color: #b71c1c;
+  text-decoration: underline;
+}
+
+.error-text {
+  color: #c62828;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0.5rem;
   padding: 8px;
+  background-color: #ffebee;
+  border-radius: 8px;
+  border: 1px solid #ffcdd2;
 }
-.error {
-  color: red;
+
+.footer-note {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 3rem;
+  text-align: center;
 }

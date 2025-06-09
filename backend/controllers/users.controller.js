@@ -225,8 +225,13 @@ export const verifyEmail = async (req, res) => {
 //send password reset otp
 export const sendResetOtp = async (req, res) => {
   try {
-    const userId = req.user.id; // from middleware
-    const user = await User.findById(userId);
+    const { email } = req.body;
+    if (!email) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Email is required" });
+    }
+    const user = await User.findOne({ email });
 
     if (!user) {
       return res
@@ -264,38 +269,44 @@ export const sendResetOtp = async (req, res) => {
 
 //reset password
 export const resetPassword = async (req, res) => {
-  const { otp, newPassword } = req.body;
+  const { otp, newPassword, email } = req.body; // Add email (or another identifier)
 
-  if (!otp || !newPassword) {
-    return res
-      .status(400)
-      .json({ success: false, message: "Please provide OTP and new password" });
+  if (!otp || !newPassword || !email) {
+    return res.status(400).json({
+      success: false,
+      message: "Please provide OTP, new password, and email",
+    });
   }
 
   try {
-    const userId = req.user.id;
-    const user = await User.findById(userId);
+    // Find user by email (or another OTP-linked field)
+    const user = await User.findOne({ email });
 
     if (!user) {
-      return res
-        .status(400)
-        .json({ success: false, message: "User not found" });
+      return res.status(400).json({
+        success: false,
+        message: "User not found",
+      });
     }
 
-    // Check if the OTP is correct and not expired
+    // Check OTP validity
     if (user.resetOtp !== otp) {
-      return res.status(400).json({ success: false, message: "Invalid OTP" });
+      return res.status(400).json({
+        success: false,
+        message: "Invalid OTP",
+      });
     }
 
     if (user.resetOtpExpireAt < Date.now()) {
-      return res.status(400).json({ success: false, message: "OTP expired" });
+      return res.status(400).json({
+        success: false,
+        message: "OTP expired",
+      });
     }
 
-    // Hash the new password before saving
+    // Update password and clear OTP
     const hashedPassword = await bcrypt.hash(newPassword, 10);
     user.password = hashedPassword;
-
-    // Clear the OTP fields after password reset
     user.resetOtp = "";
     user.resetOtpExpireAt = 0;
 
