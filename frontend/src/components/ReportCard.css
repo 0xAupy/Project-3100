@@ -1,0 +1,22 @@
+.report-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  transition: box-shadow 0.2s ease;
+}
+
+.report-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.report-card h4 {
+  margin: 0;
+  color: #dc3545;
+}
+
+.report-card .area,
+.report-card .date {
+  font-size: 0.9rem;
+  color: #777;
+}

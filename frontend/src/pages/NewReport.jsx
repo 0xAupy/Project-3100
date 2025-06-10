@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "./NewReport.css";
 
+import { AlertTriangle } from "lucide-react";
 import {
   MapContainer,
   TileLayer,
@@ -70,6 +72,7 @@ function SearchControl({ onLocationFound }) {
 
 export default function NewReport() {
   const [form, setForm] = useState({
+    title: "",
     crimeType: "",
     area: "",
     description: "",
@@ -133,10 +136,17 @@ export default function NewReport() {
   return (
     <>
       <Navbar />
+      <section className="title-section">
+        <div className="title-content">
+          <AlertTriangle size={64} className="title-icon" />
+          <h1>Report a crime</h1>
+        </div>
+      </section>
       <div className="new-report-container">
         {/* Left: Hotline Numbers */}
         <div className="hotline-section">
-          <h3>Emergency Hotlines</h3>
+          <h1>Emergency Hotlines</h1>
+
           <ul>
             <li>
               <strong>999</strong> – Police, Fire, Ambulance
@@ -216,9 +226,20 @@ export default function NewReport() {
 
         {/* Right: Report Form */}
         <form className="new-report-form" onSubmit={handleSubmit}>
-          <h2>Create New Report</h2>
+          <h1>Create New Report</h1>
           {error && <p className="error">{error}</p>}
           {success && <p className="success">{success}</p>}
+
+          <label htmlFor="title">Report Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Enter a brief title"
+            value={form.title}
+            onChange={handleChange}
+            required
+          />
 
           <label htmlFor="crimeType">Crime Type</label>
           <select
@@ -280,6 +301,7 @@ export default function NewReport() {
           <button type="submit">Submit Report</button>
         </form>
       </div>
+      <Footer />
     </>
   );
 }

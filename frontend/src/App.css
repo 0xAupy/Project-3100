@@ -1,6 +1,4 @@
-/* CRITICAL: Add this to your index.css or App.css */
-
-/* Global reset - MUST be at the very top */
+/* index.css / App.css */
 *,
 *::before,
 *::after {
@@ -9,35 +7,19 @@
   padding: 0;
 }
 
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-  line-height: 1.5;
-}
-
+html,
+body,
 #root {
   margin: 0;
   padding: 0;
   width: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Force all sections to not exceed viewport */
-section {
-  width: 100%;
-  margin: 0;
-  padding-left: 0;
-  padding-right: 0;
-  box-sizing: border-box;
+body {
+  line-height: 1.5;
+  padding-top: 100px; /* This accounts for navbar + banner */
 }
 
 /* Container utility */
@@ -45,12 +27,6 @@ section {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 0 2rem;
   box-sizing: border-box;
-}
-
-/* Debug class - add 'debug' to body to see borders */
-.debug * {
-  border: 1px solid rgba(255, 0, 0, 0.3) !important;
 }
