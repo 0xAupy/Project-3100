@@ -1,0 +1,30 @@
+name: SonarCloud
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Java (or your language)
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "11"
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v1
+        with:
+          organization: your-github-org # e.g. my-org
+          projectKey: your-project-key # choose a short, unique key
+          token: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Build
+        run: mvn verify # or your build command

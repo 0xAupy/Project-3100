@@ -138,8 +138,10 @@ export default function NewReport() {
       <Navbar />
       <section className="title-section">
         <div className="title-content">
-          <AlertTriangle size={64} className="title-icon" />
-          <h1>Report a crime</h1>
+          <h1 className="title-heading">
+            <AlertTriangle size={64} className="title-icon" />
+            <span>Report a crime</span>
+          </h1>
         </div>
       </section>
       <div className="new-report-container">
