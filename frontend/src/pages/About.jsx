@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import "./About.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function About() {
   return (
@@ -62,8 +63,8 @@ export default function About() {
                 <AlertTriangle size={48} className="feature-icon" />
                 <h3>Crime Reporting</h3>
                 <p>
-                  Report incidents quickly and anonymously to help law
-                  enforcement and warn your community about potential dangers.
+                  Report incidents quickly and correctly to help law enforcement
+                  and warn your community about potential dangers.
                 </p>
               </div>
               <div className="feature-card">
@@ -141,23 +142,8 @@ export default function About() {
             </div>
           </div>
         </section>
-
-        {/* CTA Section */}
-        <section className="cta-section">
-          <div className="container">
-            <br />
-            <h2>Join Our Community</h2>
-            <p>
-              Help make your neighborhood safer by reporting incidents and
-              sharing safety information.
-            </p>
-            {/* <button className="cta-button">Get Started</button> */}
-            <br />
-
-            <p>© 2025 CrimeAlert. All rights reserved.</p>
-          </div>
-        </section>
       </div>
+      <Footer />
     </>
   );
 }

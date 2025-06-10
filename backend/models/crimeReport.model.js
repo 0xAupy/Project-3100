@@ -2,6 +2,12 @@ import mongoose from "mongoose";
 
 const crimeReportSchema = new mongoose.Schema(
   {
+    title: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
     crimeType: {
       type: String,
       required: true,

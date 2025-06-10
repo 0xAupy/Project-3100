@@ -1,13 +1,39 @@
+/* Title Section */
+.title-section {
+  background: #fcf0f0;
+  color: #b02a37;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.title-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title-icon {
+  color: #b02a37;
+  margin-bottom: 1rem;
+}
+
+.title-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #891a1f;
+}
+
 /* Container */
 .new-report-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  padding-top: 120px; /* Space for navbar */
+  padding-top: 20px; /* Space for navbar */
   padding-left: 40px;
-  padding-right: 40px;
-  background: #f9f9f9;
+  padding-right: 80px;
+  padding-bottom: 20px;
+  background: #fcf0f0;
   gap: 40px;
   font-family: "Segoe UI", sans-serif;
 }
@@ -16,15 +42,15 @@
 .hotline-section {
   flex: 4;
   background: white;
-  padding: 24px;
+  padding: 48px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.hotline-section h3 {
+.hotline-section h1 {
   margin-bottom: 16px;
   color: #b02a37;
-  font-size: 1.2rem;
+  font-size: 1.75rem;
 }
 
 .hotline-section ul {
@@ -60,13 +86,13 @@
   background: white;
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 52px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   font-family: "Segoe UI", sans-serif;
 }
 
-.new-report-form h2 {
+.new-report-form h1 {
   text-align: center;
   margin-bottom: 20px;
   color: #b02a37;

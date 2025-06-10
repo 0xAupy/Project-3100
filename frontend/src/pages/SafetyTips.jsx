@@ -5,8 +5,6 @@ import {
   Smartphone,
   Users,
   Shield,
-  Eye,
-  Lock,
   AlertTriangle,
   ChevronDown,
   ChevronUp,
@@ -223,7 +221,7 @@ export default function SafetyTips() {
         {/* Safe Section */}
         <section className="safe-section">
           <div className="safe-content">
-            <AlertTriangle size={64} className="safe-icon" />
+            <Shield size={64} className="safe-icon" />
             <h1>Safety Tips & Guidelines</h1>
             <p>
               Essential safety information to help keep you and your community
@@ -345,7 +343,11 @@ export default function SafetyTips() {
               </a>
               <br />
               <br />
-              <p> © 2025 CrimeAlert. All rights reserved.</p>
+              <p>
+                {" "}
+                &copy; {new Date().getFullYear()} CrimeAlert. All rights
+                reserved.
+              </p>
             </div>
           </div>
         </section>

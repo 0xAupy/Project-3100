@@ -14,7 +14,6 @@ body {
 }
 
 .about-page {
-  padding-top: 100px;
   min-height: 100vh;
 }
 
@@ -29,7 +28,7 @@ body {
 /* Hero */
 .hero-section {
   background: #fff0f0;
-  padding: 4rem 0;
+  padding: 3rem 0;
   text-align: center;
 }
 
@@ -148,6 +147,7 @@ body {
 }
 
 .stat-item h3 {
+  color: white;
   font-size: 3rem;
   font-weight: 700;
 }
@@ -199,57 +199,4 @@ body {
   color: #891a1f;
   margin-bottom: 1rem;
   font-weight: 600;
-}
-
-/* CTA Section */
-.cta-section {
-  padding: 0.5rem 0;
-  background: linear-gradient(135deg, #891a1f 0%, #dc3545 100%);
-  color: white;
-  text-align: center;
-}
-
-.cta-inner {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.cta-heading {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
-}
-
-.cta-text {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.cta-footer {
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
-/* Optional Button Styling */
-.cta-button {
-  background: white;
-  color: #891a1f;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 1rem;
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }

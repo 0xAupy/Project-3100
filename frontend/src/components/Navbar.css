@@ -15,6 +15,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  height: 60px; /* Fixed height */
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -92,7 +93,7 @@
   position: absolute;
   top: 36px;
   right: 0;
-  background: white;
+  background: rgb(250, 240, 240);
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -134,12 +135,15 @@
   font-weight: bold;
   cursor: pointer;
   font-size: 0.9rem;
-  padding: 0;
+  padding: 0.25rem 0.5rem; /* Added some padding for better hover area */
+  border-radius: 20px; /* Added slight rounding */
+  transition: all 0.2s ease; /* Smooth transition for hover effects */
 }
 
 .logout-btn:hover {
-  color: #b02a37;
-  text-decoration: underline;
+  color: white; /* Changed to white for better contrast */
+  background-color: #dc3545; /* Red background on hover */
+  text-decoration: none; /* Remove underline since we have background */
 }
 
 /* Emergency Banner */
@@ -150,18 +154,12 @@
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
   position: fixed;
-  top: 60px; /* Adjust based on navbar height */
+  top: 60px; /* Navbar height */
   left: 0;
   width: 100%;
+  height: 40px; /* Fixed height */
   z-index: 999;
-}
-
-/* Add padding to main content areas to account for fixed navbar + banner */
-.main-content {
-  padding-top: 100px; /* Adjust based on combined height of navbar + banner */
-}
-
-/* Alternative: Add this class to your page containers */
-.page-container {
-  padding-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

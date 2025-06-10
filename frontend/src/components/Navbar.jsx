@@ -55,7 +55,6 @@ export default function Navbar() {
                     </p>
                     <p>{user.email}</p>
                     <hr />
-                    {/* <Link to="/profile">View Profile</Link> */}
                     <button onClick={handleLogout} className="logout-btn">
                       Logout
                     </button>

@@ -27,16 +27,18 @@ export const getReportById = async (req, res) => {
 // POST create new report
 export const createReport = async (req, res) => {
   try {
-    const { crimeType, area, location, description } = req.body;
+    const { title, crimeType, area, location, description } = req.body;
     const userId = req.user ? req.user._id : null;
 
     const newReport = new CrimeReport({
+      title,
       crimeType,
       area,
       location,
       description,
       userId,
     });
+
     await newReport.save();
 
     res.status(201).json(newReport);
