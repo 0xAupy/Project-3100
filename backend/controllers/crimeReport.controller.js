@@ -47,25 +47,6 @@ export const createReport = async (req, res) => {
   }
 };
 
-// GET search reports
-export const searchReports = async (req, res) => {
-  try {
-    const { type, location } = req.query;
-    const query = {};
-
-    if (type) query.crimeType = type;
-    if (location) query.location = new RegExp(location, "i");
-
-    const reports = await CrimeReport.find(query).populate(
-      "userId",
-      "name email"
-    );
-    res.json(reports);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
 // DELETE a report by ID
 export const deleteReport = async (req, res) => {
   try {

@@ -102,6 +102,7 @@
   color: #333;
   line-height: 1.4;
 }
+
 .checkbox-label input[type="checkbox"] {
   margin: 0;
   margin-top: 1px;
@@ -141,6 +142,7 @@
   text-decoration: underline;
   color: #b71c1c;
 }
+
 .submit-btn {
   width: 100%;
   padding: 12px;
