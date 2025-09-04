@@ -9,7 +9,7 @@ import {
   Users,
   KeyRound,
 } from "lucide-react";
-import "./Login.css"; // Reuse the Login styles for consistency
+import "./ResetPassword.css"; // Reuse the Login styles for consistency
 // import logoImage from "../assets/shield.png"; // same logo as login
 
 export default function ResetPassword() {
