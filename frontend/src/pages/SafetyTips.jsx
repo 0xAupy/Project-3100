@@ -10,7 +10,7 @@ import {
   ChevronUp,
   MapPin,
 } from "lucide-react";
-import "./SafetyTips.css";
+import "./Safetytips.css";
 import Navbar from "../components/Navbar"; // Adjust the import path as necessary
 
 export default function SafetyTips() {
