@@ -7,13 +7,19 @@
 }
 
 .title-content {
-  max-width: 800px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .title-icon {
-  color: #b02a37;
-  margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
 .title-content h1 {
@@ -86,7 +92,7 @@
   background: white;
   display: flex;
   flex-direction: column;
-  padding: 52px;
+  padding: 64px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   font-family: "Segoe UI", sans-serif;
@@ -172,7 +178,7 @@
 }
 
 .leaflet-control-geosearch {
-  z-index: 10000 !important;
+  z-index: 9000;
   position: relative;
 }
 

@@ -11,10 +11,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  width: 100vw;
   background: linear-gradient(to bottom right, #fff5f5, #ffe6e6);
-  padding: 2rem;
   box-sizing: border-box;
 }
 
@@ -23,7 +20,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1rem;
   width: 100%;
   max-width: 400px;
 }
@@ -146,14 +143,9 @@ body {
   border: none;
   outline: none;
 }
-
-.eye-toggle:focus {
-  outline: none;
-  box-shadow: none;
-}
-
 .eye-toggle:hover {
-  color: #c62828;
+  background: transparent !important;
+  color: #888 !important;
 }
 
 .forgot-password {

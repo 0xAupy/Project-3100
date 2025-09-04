@@ -3,7 +3,6 @@ import { Bell, User, AlertTriangle } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./Navbar.css";
-// import logoImage from "../assets/shield.png"; // adjust the path if needed
 
 export default function Navbar() {
   const [showProfile, setShowProfile] = useState(false);
@@ -54,6 +53,9 @@ export default function Navbar() {
                       <strong>{user.name}</strong>
                     </p>
                     <p>{user.email}</p>
+                    <p>
+                      <a href="/verify-email">Verify your email</a>
+                    </p>
                     <hr />
                     <button onClick={handleLogout} className="logout-btn">
                       Logout
