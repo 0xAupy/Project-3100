@@ -16,7 +16,7 @@
   left: 0;
   width: 100%;
   height: 60px; /* Fixed height */
-  z-index: 1000;
+  z-index: 1050;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -131,7 +131,8 @@
   margin-top: 0.5rem;
   background: none;
   border: none;
-  color: #dc3545;
+  color: white; /* Changed to white for better contrast */
+  background-color: #dc3545;
   font-weight: bold;
   cursor: pointer;
   font-size: 0.9rem;
@@ -141,8 +142,7 @@
 }
 
 .logout-btn:hover {
-  color: white; /* Changed to white for better contrast */
-  background-color: #dc3545; /* Red background on hover */
+  color: #f7e2e4;
   text-decoration: none; /* Remove underline since we have background */
 }
 
