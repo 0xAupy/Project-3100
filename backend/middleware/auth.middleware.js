@@ -13,15 +13,15 @@ const protectRoute = async (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    const user = await User.findById(decoded.id).select("-password"); // ✅ fetch full user
+    const user = await User.findById(decoded.id).select("-password"); //Excludes the password field from the result for security.
 
     if (!user) {
       return res.status(401).json({ message: "Unauthorized - User not found" });
     }
 
-    req.user = user; // ✅ attaches full user to req.user
+    req.user = user;
 
-    next(); // move to the next middleware/controller
+    next();
   } catch (err) {
     console.log(err);
     return res.status(401).json({ message: "Unauthorized - Invalid token" });

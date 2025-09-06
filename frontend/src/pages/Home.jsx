@@ -6,7 +6,6 @@ import api from "../services/api";
 import CrimeTypeChart from "../components/charts/CrimeTypeChart";
 import ReportsOverTimeChart from "../components/charts/ReportsOverTimeChart";
 import ActiveVsResolvedChart from "../components/charts/ActiveVsResolvedChart";
-import TopAreasChart from "../components/charts/TopAreasChart";
 
 import "./Home.css";
 

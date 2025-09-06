@@ -3,28 +3,19 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to bottom right, #fff5f5, #ffe6e6);
   color: #333;
+  position: relative;
 }
 
-.login-page {
-  background-image: url("/bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.layout-root {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  box-sizing: border-box;
+.bg-image {
+  width: 100%;
+  max-height: 100vh;
 }
 
 .login-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,7 +25,6 @@ body {
   max-width: 400px;
 }
 
-/* Header */
 .login-header {
   text-align: center;
   margin-bottom: 2rem;
@@ -57,7 +47,6 @@ body {
   margin-top: 0.25rem;
 }
 
-/* Stats */
 .stats-banner {
   display: flex;
   justify-content: space-between;
@@ -76,7 +65,6 @@ body {
   gap: 6px;
 }
 
-/* Form */
 .login-form {
   background: #ffffffcc;
   backdrop-filter: blur(4px);
@@ -84,7 +72,7 @@ body {
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
   width: 100%;
-  max-width: 480px; /* Increased form width */
+  max-width: 480px;
 }
 
 .form-group {
@@ -180,7 +168,7 @@ body {
 .submit-btn {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(to right, #c62828, #b71c1c);
+  background: #c62828;
   color: white;
   font-weight: bold;
   border: none;
@@ -192,7 +180,7 @@ body {
 }
 
 .submit-btn:hover {
-  background: linear-gradient(to right, #b71c1c, #880e4f);
+  background: #b71c1c;
   transform: translateY(-1px);
 }
 
@@ -234,4 +222,15 @@ body {
 }
 body.no-padding-top {
   padding-top: 0 !important;
+}
+
+/* Media Queries */
+/* For smaller screens */
+@media (max-width: 768px) {
+  .bg-image {
+    display: none;
+  }
+  .login-form {
+    padding: 1.5rem 1rem;
+  }
 }

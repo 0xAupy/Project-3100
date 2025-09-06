@@ -15,8 +15,8 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
       trim: true,
-      lowercase: true, // Ensures emails are stored in lowercase
-      match: [/.+\@.+\..+/, "Please enter a valid email"], // Basic email validation
+      lowercase: true,
+      match: [/.+\@.+\..+/, "Please enter a valid email"],
     },
     password: {
       type: String,
@@ -44,7 +44,6 @@ const userSchema = new mongoose.Schema(
       default: 0,
     },
     role: {
-      // Optional: Differentiate admins/users
       type: String,
       enum: ["user", "admin"],
       default: "user",

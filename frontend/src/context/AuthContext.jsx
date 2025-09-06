@@ -17,17 +17,14 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // On mount, fetch current auth user
     apiGetMe()
       .then((res) => setUser(res.data))
       .catch(() => setUser(null))
       .finally(() => setLoading(false));
   }, []);
 
-  /** Wraps registration API */
   const register = (data) => apiRegister(data);
 
-  /** Wraps login API and updates context */
   const login = async (data) => {
     const res = await apiLogin(data);
     if (res.data?.user) {
@@ -36,22 +33,17 @@ export function AuthProvider({ children }) {
     return res;
   };
 
-  /** Wraps logout API and clears context */
   const logout = async () => {
     await apiLogout();
     setUser(null);
   };
 
-  /** Send email verification OTP */
   const sendVerifyOtp = () => apiSendVerifyOtp();
 
-  /** Verify email with OTP */
   const verifyEmail = (data) => apiVerifyEmail(data);
 
-  /** Send password reset OTP */
   const sendResetOtp = (email) => apiSendResetOtp({ email });
 
-  /** Reset password with OTP */
   const resetPassword = (data) => apiResetPassword(data);
 
   const value = {
@@ -66,7 +58,6 @@ export function AuthProvider({ children }) {
     resetPassword,
   };
 
-  // Show a loading state until we know auth status
   if (loading) {
     return <div>Loading...</div>;
   }

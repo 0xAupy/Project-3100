@@ -53,6 +53,7 @@ export default function Register() {
 
   return (
     <div className="layout-root">
+      <img className="bg-image" src="/bg.png" alt="" />
       <div className="register-wrapper">
         <div className="register-header">
           <h1>Create Your Account</h1>
@@ -111,7 +112,6 @@ export default function Register() {
               </button>
             </div>
           </div>
-
           <div className="form-group">
             <label>Confirm Password</label>
             <div className="input-icon">

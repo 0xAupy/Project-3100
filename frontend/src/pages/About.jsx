@@ -27,7 +27,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Mission Section */}
         <section className="mission-section">
           <div className="container">
             <div className="mission-content">
@@ -54,7 +53,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Features Section */}
         <section className="features-section">
           <div className="container">
             <h2>How We Help</h2>
@@ -87,7 +85,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Stats Section */}
         <section className="stats-section">
           <div className="container">
             <div className="stats-grid">
@@ -111,7 +108,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Contact Section */}
         <section className="contact-section">
           <div className="container">
             <h2>Contact Us</h2>

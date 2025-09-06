@@ -1,5 +1,6 @@
 import Comment from "../models/comment.model.js";
 
+// Get comments for a specific report
 export const getCommentsByReport = async (req, res) => {
   try {
     const comments = await Comment.find({ reportId: req.params.id }).populate(
@@ -12,6 +13,7 @@ export const getCommentsByReport = async (req, res) => {
   }
 };
 
+// Add a comment to a specific report
 export const addCommentToReport = async (req, res) => {
   try {
     const { comment } = req.body;
@@ -25,7 +27,6 @@ export const addCommentToReport = async (req, res) => {
     let newComment = new Comment({ comment, userId, reportId });
     await newComment.save();
 
-    // populate the userId with name
     newComment = await newComment.populate("userId", "name");
 
     res.status(201).json(newComment);
@@ -34,6 +35,7 @@ export const addCommentToReport = async (req, res) => {
   }
 };
 
+//Delete a comment by its ID
 export const deleteComment = async (req, res) => {
   try {
     const comment = await Comment.findById(req.params.commentId);

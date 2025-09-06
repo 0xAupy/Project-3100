@@ -10,7 +10,7 @@ import ReportDetail from "./pages/ReportDetail";
 import PrivateRoute from "./components/PrivateRoute";
 import SafetyTips from "./pages/SafetyTips";
 import About from "./pages/About";
-import "./App.css"; // Import your global styles
+import "./App.css";
 
 function App() {
   return (

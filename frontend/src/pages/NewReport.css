@@ -203,3 +203,74 @@
   outline: none;
   border-color: #dc3545;
 }
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .new-report-container {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .hotline-section,
+  .new-report-form {
+    flex: none;
+    width: 100%;
+    padding: 32px;
+  }
+
+  .new-report-form {
+    padding: 40px 28px;
+  }
+
+  .title-content h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .title-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .hotline-section,
+  .new-report-form {
+    padding: 24px;
+  }
+
+  .new-report-form textarea {
+    min-height: 140px;
+  }
+
+  .new-report-form button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .new-report-form,
+  .hotline-section {
+    padding: 16px;
+  }
+
+  .new-report-form select,
+  .new-report-form input,
+  .new-report-form textarea {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .new-report-form button {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+}

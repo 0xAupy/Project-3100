@@ -18,6 +18,9 @@ export default function Navbar() {
     navigate("/login");
   };
 
+  // drop-down
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <nav className="navbar">
@@ -67,6 +70,78 @@ export default function Navbar() {
                     <Link to="/login">Login</Link>
                   </>
                 )}
+              </div>
+            )}
+          </div>
+        </div>
+      </nav>
+
+      <nav className="navbar-mobile">
+        <div className="navbar-left">
+          <AlertTriangle size={24} className="warning-icon" />
+          <a to="/">
+            <span className="navbar-brand">Crime Alert</span>
+          </a>
+        </div>
+
+        <div className="navbar-right">
+          <button className="icon-button">
+            <Bell size={20} />
+          </button>
+
+          <div className="profile-wrapper">
+            <button className="icon-button" onClick={toggleProfileCard}>
+              <User size={20} />
+            </button>
+
+            {showProfile && (
+              <div className="profile-card">
+                {user ? (
+                  <>
+                    <p>
+                      <strong>{user.name}</strong>
+                    </p>
+                    <p>{user.email}</p>
+                    <p>
+                      <a href="/verify-email">Verify your email</a>
+                    </p>
+                    <hr />
+                    <button onClick={handleLogout} className="logout-btn">
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <p>Not logged in</p>
+                    <Link to="/login">Login</Link>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+          {/* hamburger menu */}
+          <div className="navbar-center-mobile">
+            <button
+              className="menu-toggle"
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
+            >
+              ☰
+            </button>
+            {open && (
+              <div className="menu">
+                <Link className="dropdown-link" to="/">
+                  Home
+                </Link>
+                <Link className="dropdown-link" to="/reports/new">
+                  Report Crime
+                </Link>
+                <Link className="dropdown-link" to="/safety-tips">
+                  Safety Tips
+                </Link>
+                <Link className="dropdown-link" to="/about">
+                  About
+                </Link>
               </div>
             )}
           </div>
