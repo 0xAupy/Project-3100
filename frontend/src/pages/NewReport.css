@@ -100,7 +100,7 @@
 
 .new-report-form h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   color: #b02a37;
 }
 
@@ -135,7 +135,7 @@
 
 .new-report-form textarea {
   resize: vertical;
-  min-height: 140px; /* Enlarged height */
+  min-height: 180px;
 }
 
 .new-report-form button {
@@ -178,7 +178,7 @@
 }
 
 .leaflet-control-geosearch {
-  z-index: 9000;
+  z-index: 500;
   position: relative;
 }
 

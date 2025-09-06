@@ -1,5 +1,4 @@
-// src/pages/Login.jsx
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./Login.css";
@@ -34,11 +33,15 @@ export default function Login() {
       setError(err.response?.data?.message || "Login failed");
     }
   };
+  useEffect(() => {
+    document.body.classList.add("no-padding-top");
+    return () => {
+      document.body.classList.remove("no-padding-top");
+    };
+  }, []);
 
   return (
     <div className="login-page">
-      {" "}
-      {/* Add this class */}
       <div className="layout-root">
         <div className="login-wrapper">
           <div className="login-header">

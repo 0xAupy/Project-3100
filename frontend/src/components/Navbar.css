@@ -16,7 +16,7 @@
   left: 0;
   width: 100%;
   height: 60px; /* Fixed height */
-  z-index: 1050;
+  z-index: 10000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -26,12 +26,17 @@
   align-items: center;
   gap: 8px;
 }
+.navbar a {
+  text-decoration: none !important;
+  color: inherit;
+}
 
 .warning-icon {
   color: white;
 }
 
 .navbar-brand {
+  text-decoration: none;
   font-size: 1.25rem;
   font-weight: bold;
   color: white;
@@ -158,7 +163,7 @@
   left: 0;
   width: 100%;
   height: 40px; /* Fixed height */
-  z-index: 999;
+  z-index: 5000;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -11,7 +11,7 @@
 
 /* Safe Section */
 .safe-section {
-  background: white;
+  background: #fff5f5;
   color: #b02a37;
   padding: 2rem 2rem;
   text-align: center;
@@ -43,7 +43,7 @@
 /* Main Content */
 .main-content {
   padding: 3rem 0;
-  background: #fff5f5;
+  background: #ffffff;
 }
 
 /* Category Navigation */
@@ -122,9 +122,9 @@
 }
 
 .tip-card {
-  background: white;
+  background: #fff5f5;
   border: 2px solid #f8f9fa;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -138,10 +138,6 @@
   padding: 1.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.tip-header:hover {
-  background: #fff5f5;
 }
 
 .tip-header h3 {
@@ -173,7 +169,7 @@
 .tip-details {
   padding: 0 1.5rem 1.5rem;
   border-top: 1px solid #f0f0f0;
-  background: #fff5f5;
+  /* background: #fff5f5; */
   animation: slideDown 0.3s ease;
 }
 
@@ -236,6 +232,7 @@
   padding: 1rem;
   border-radius: 8px;
   border-left: 4px solid #b02a37;
+  margin-bottom: 1rem;
 }
 
 .emergency-number h3 {
@@ -250,26 +247,46 @@
   margin: 0;
 }
 
-.emergency-tips h3 {
-  font-size: 1.5rem;
+.emergency-tips {
+  background: #ffffff; /* soft background to make it stand out */
+  padding: 2rem;
+  max-width: 700px;
+  margin: 2rem auto; /* center on page */
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.emergency-tips h1 {
+  font-size: 2rem;
   color: #891a1f;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
   font-weight: bold;
+}
+
+.emergency-tips ul {
+  list-style: none; /* remove default bullets */
+  padding-left: 0;
 }
 
 .emergency-tips li {
-  padding: 0.5rem 0;
-  color: #b02a37;
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 2rem; /* space for custom bullet */
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: #333;
+  font-size: 1rem;
 }
 
+/* Custom bullet */
 .emergency-tips li::before {
-  content: "✓";
-  color: #891a1f;
-  font-weight: bold;
+  content: "✓"; /* or use •, ⚠, 🔹 */
   position: absolute;
   left: 0;
+  top: 0;
+  color: #b02a37;
+  font-weight: bold;
 }
 
 /* Updated Report Section */

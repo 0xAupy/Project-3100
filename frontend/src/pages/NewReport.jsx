@@ -125,7 +125,21 @@ export default function NewReport() {
     e.preventDefault();
     setError("");
     try {
-      await api.post("/reports", form);
+      const formData = new FormData();
+      formData.append("title", form.title);
+      formData.append("crimeType", form.crimeType);
+      formData.append("area", form.area);
+      formData.append("description", form.description);
+      formData.append("location", form.location);
+
+      if (form.image) {
+        formData.append("image", form.image);
+      }
+
+      await api.post("/reports", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
       setSuccess("Report created successfully!");
       setTimeout(() => navigate("/"), 1500);
     } catch (err) {
@@ -223,6 +237,15 @@ export default function NewReport() {
                 natural disasters.
               </span>
             </li>
+            <li>
+              <strong>9999</strong> – National Anti-Terrorism Hotline
+              <br />
+              <span>
+                Call this number to report suspicious activities, terrorism
+                threats, or extremist behavior. Provides direct access to law
+                enforcement agencies for urgent security concerns.
+              </span>
+            </li>
           </ul>
         </div>
 
@@ -299,7 +322,6 @@ export default function NewReport() {
             onChange={handleChange}
             required
           />
-
           <button type="submit">Submit Report</button>
         </form>
       </div>

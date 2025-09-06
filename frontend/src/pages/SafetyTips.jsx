@@ -314,7 +314,7 @@ export default function SafetyTips() {
                 </div>
               </div>
               <div className="emergency-tips">
-                <h3>Emergency Preparedness</h3>
+                <h1>Emergency Preparedness</h1>
                 <ul>
                   <li>Keep emergency numbers posted in visible locations</li>
                   <li>Maintain a well-stocked first aid kit</li>

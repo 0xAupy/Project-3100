@@ -1,7 +1,7 @@
 .detail-container {
   max-width: 800px;
-  margin: 120px auto 40px;
-  padding: 0 20px 40px; /* Added bottom padding for visual space */
+  margin: 20px auto 40px;
+  padding: 40px 40px 40px; /* Added bottom padding for visual space */
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
@@ -29,20 +29,20 @@
   color: #777;
 }
 
-.delete-report-btn {
-  margin-top: 20px;
-  padding: 10px 14px;
-  background-color: #e74c3c;
+.vote-btn {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  padding: 8px 16px;
   border: none;
   border-radius: 6px;
-  color: white;
-  font-weight: 600;
+  background: #f1f1f1;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.delete-report-btn:hover {
-  background-color: #c0392b;
+.vote-btn:hover {
+  background: #e2e2e2;
 }
 
 /* Comments */

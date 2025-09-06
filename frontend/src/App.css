@@ -1,4 +1,3 @@
-/* index.css / App.css */
 *,
 *::before,
 *::after {
@@ -19,14 +18,5 @@ body,
 
 body {
   line-height: 1.5;
-  padding-top: 100px; /* This accounts for navbar + banner */
-}
-
-/* Container utility */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  box-sizing: border-box;
+  padding-top: 100px;
 }

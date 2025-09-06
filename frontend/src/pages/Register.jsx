@@ -1,5 +1,4 @@
-// src/pages/Register.jsx
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { User, Mail, Lock, Eye, EyeOff, Shield } from "lucide-react";
@@ -41,6 +40,16 @@ export default function Register() {
       setError(err.response?.data?.message || "Registration failed");
     }
   };
+
+  useEffect(() => {
+    // Remove top padding for login page
+    document.body.classList.add("no-padding-top");
+
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove("no-padding-top");
+    };
+  }, []);
 
   return (
     <div className="layout-root">
@@ -123,18 +132,6 @@ export default function Register() {
                 {showConfirmPassword ? <Eye size={18} /> : <EyeOff size={18} />}
               </button>
             </div>
-          </div>
-
-          <div className="form-group checkbox-group">
-            <label className="checkbox-label">
-              <input type="checkbox" required />
-              <span>
-                I agree to the{" "}
-                <a href="/terms" target="_blank">
-                  Terms & Conditions
-                </a>
-              </span>
-            </label>
           </div>
 
           {error && <p className="error-text">{error}</p>}

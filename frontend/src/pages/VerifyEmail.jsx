@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./VerifyEmail.css";
@@ -30,6 +30,16 @@ export default function VerifyEmail() {
       setError(err.response?.data?.message || "Verification failed");
     }
   };
+
+  useEffect(() => {
+    // Remove top padding for login page
+    document.body.classList.add("no-padding-top");
+
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove("no-padding-top");
+    };
+  }, []);
 
   return (
     <div className="verify-container">

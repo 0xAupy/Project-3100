@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import api from "../services/api";
+import CrimeTypeChart from "../components/charts/CrimeTypeChart";
+import ReportsOverTimeChart from "../components/charts/ReportsOverTimeChart";
+import ActiveVsResolvedChart from "../components/charts/ActiveVsResolvedChart";
+import TopAreasChart from "../components/charts/TopAreasChart";
+
 import "./Home.css";
 
 export default function Home() {
@@ -82,33 +87,31 @@ export default function Home() {
       <Navbar />
       <div className="home-container">
         {/* Stats Section */}
-        <div className="stats-container">
-          <div className="stat-card">
-            <h4>Total Reports</h4>
-            <p>{reports.length}</p>
+        <div className="charts-container">
+          <div className="chart-card">
+            <h4>Crime Types</h4>
+            <div className="chart-wrapper">
+              <CrimeTypeChart />
+            </div>
           </div>
-          <div className="stat-card">
-            <h4>Most Frequent Crime</h4>
-            <p>
-              {[...new Set(reports.map((r) => r.crimeType))]
-                .map((type) => ({
-                  type,
-                  count: reports.filter((r) => r.crimeType === type).length,
-                }))
-                .sort((a, b) => b.count - a.count)[0]?.type || "N/A"}
-            </p>
+          <div className="chart-card">
+            <h4>Reports Over Time</h4>
+            <div className="chart-wrapper">
+              <ReportsOverTimeChart />
+            </div>
           </div>
-          <div className="stat-card">
-            <h4>Top Reported Area</h4>
-            <p>
-              {[...new Set(reports.map((r) => r.area))]
-                .map((area) => ({
-                  area,
-                  count: reports.filter((r) => r.area === area).length,
-                }))
-                .sort((a, b) => b.count - a.count)[0]?.area || "N/A"}
-            </p>
+          <div className="chart-card">
+            <h4>Active vs Resolved</h4>
+            <div className="chart-wrapper">
+              <ActiveVsResolvedChart />
+            </div>
           </div>
+          {/* <div className="chart-card">
+            <h4>Top Areas</h4>
+            <div className="chart-wrapper">
+              <TopAreasChart />
+            </div>
+          </div> */}
         </div>
 
         {/* Search and Filters */}
@@ -167,7 +170,7 @@ export default function Home() {
                 <div className="report-meta">
                   <span className="badge">{report.crimeType} </span>
                   <span className="badge light">
-                    - {report.area || report.location}
+                    {report.area || report.location}
                   </span>
                 </div>
 

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import {
@@ -9,7 +9,7 @@ import {
   Users,
   KeyRound,
 } from "lucide-react";
-import "./Login.css"; // Reuse the Login styles for consistency
+import "./ResetPassword.css"; // Reuse the Login styles for consistency
 // import logoImage from "../assets/shield.png"; // same logo as login
 
 export default function ResetPassword() {
@@ -43,6 +43,16 @@ export default function ResetPassword() {
       setError(err.response?.data?.message || "Reset failed");
     }
   };
+
+  useEffect(() => {
+    // Remove top padding for login page
+    document.body.classList.add("no-padding-top");
+
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove("no-padding-top");
+    };
+  }, []);
 
   return (
     <div className="layout-root">

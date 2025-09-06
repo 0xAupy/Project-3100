@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import path from "path";
 
 import connectDB from "./config/mongodb.js";
 
@@ -30,6 +31,8 @@ app.get("/", (req, res) => {
   res.send("API is running");
 });
 
+// Serve uploaded images
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 app.use("/api/reports", crimeReportsRoutes);
 app.use("/api/reports/:id/comments", commentsRoutes);
 app.use("/api/users", usersRoutes);

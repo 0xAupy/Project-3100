@@ -28,15 +28,15 @@ export default function ReportDetail() {
       .catch(() => setError("Failed to load comments"));
   }, [id]);
 
-  const handleDeleteReport = async () => {
-    if (!window.confirm("Are you sure you want to delete this report?")) return;
-    try {
-      await api.delete(`/reports/${id}`);
-      navigate("/");
-    } catch (err) {
-      setError(err.response?.data?.message || "Failed to delete report");
-    }
-  };
+  // const handleDeleteReport = async () => {
+  //   if (!window.confirm("Are you sure you want to delete this report?")) return;
+  //   try {
+  //     await api.delete(`/reports/${id}`);
+  //     navigate("/");
+  //   } catch (err) {
+  //     setError(err.response?.data?.message || "Failed to delete report");
+  //   }
+  // };
 
   const handleAddComment = async (e) => {
     e.preventDefault();
@@ -48,15 +48,6 @@ export default function ReportDetail() {
       setNewComment("");
     } catch (err) {
       setError(err.response?.data?.message || "Failed to add comment");
-    }
-  };
-
-  const handleDeleteComment = async (commentId) => {
-    try {
-      await api.delete(`/reports/${id}/comments/${commentId}`);
-      setComments((prev) => prev.filter((c) => c._id !== commentId));
-    } catch (err) {
-      setError(err.response?.data?.message || "Failed to delete comment");
     }
   };
 
@@ -72,10 +63,11 @@ export default function ReportDetail() {
     <>
       <Navbar />
       <div className="detail-container">
-        <h2 style={{ marginBottom: "8px" }}>
-          {report.crimeType} — {report.area}
+        {/* Centered title */}
+        <h2 style={{ marginBottom: "8px", textAlign: "center" }}>
+          {report.title}
         </h2>
-
+        {/* Map */}
         {report.location && report.location.includes(",") && (
           <div className="map-preview-container">
             <iframe
@@ -92,13 +84,53 @@ export default function ReportDetail() {
         )}
 
         <p>{report.description}</p>
+
+        {/* Upvote/Downvote Section */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "20px",
+            margin: "16px 0",
+          }}
+        >
+          <button
+            className="vote-btn"
+            onClick={async () => {
+              try {
+                const res = await api.post(`/reports/${id}/upvote`);
+                setReport(res.data); // backend should return updated report
+              } catch (err) {
+                setError(err.response?.data?.message || "Failed to upvote");
+              }
+            }}
+          >
+            ⬆️ {report.upvotes?.length || 0}
+          </button>
+
+          <button
+            className="vote-btn"
+            onClick={async () => {
+              try {
+                const res = await api.post(`/reports/${id}/downvote`);
+                setReport(res.data);
+              } catch (err) {
+                setError(err.response?.data?.message || "Failed to downvote");
+              }
+            }}
+          >
+            ⬇️ {report.downvotes?.length || 0}
+          </button>
+        </div>
+
         <small>Reported on {new Date(report.createdAt).toLocaleString()}</small>
 
-        {user && report.userId === user.id && (
+        {/* {user && report.userId === user.id && (
           <button className="delete-report-btn" onClick={handleDeleteReport}>
             Delete Report
           </button>
-        )}
+        )} */}
 
         <section className="comments-section">
           <h3>Comments</h3>
@@ -107,12 +139,10 @@ export default function ReportDetail() {
           {comments.map((c) => (
             <div key={c._id} className="comment">
               <p>{c.comment}</p>
-              <small>{new Date(c.createdAt).toLocaleString()}</small>
-              {user && c.userId._id === user.id && (
-                <button onClick={() => handleDeleteComment(c._id)}>
-                  Delete
-                </button>
-              )}
+              <small>
+                Posted by <strong>{c.userId?.name || "Unknown"}</strong> on{" "}
+                {new Date(c.createdAt).toLocaleString()}
+              </small>
             </div>
           ))}
 
