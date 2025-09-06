@@ -85,6 +85,24 @@ export default function NewReport() {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
+  const [user, setUser] = useState(null);
+  const [loadingUser, setLoadingUser] = useState(true);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await api.get("/auth/me"); // adjust if your endpoint differs
+        setUser(res.data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoadingUser(false);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   const crimeTypes = [
     "Theft",
     "Assault",
@@ -125,24 +143,21 @@ export default function NewReport() {
     e.preventDefault();
     setError("");
     try {
-      const formData = new FormData();
-      formData.append("title", form.title);
-      formData.append("crimeType", form.crimeType);
-      formData.append("area", form.area);
-      formData.append("description", form.description);
-      formData.append("location", form.location);
+      // Only include necessary fields
+      const payload = {
+        title: form.title,
+        crimeType: form.crimeType,
+        area: form.area,
+        description: form.description,
+        location: form.location,
+      };
 
-      if (form.image) {
-        formData.append("image", form.image);
-      }
-
-      await api.post("/reports", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      await api.post("/reports", payload); // no multipart/form-data needed
 
       setSuccess("Report created successfully!");
       setTimeout(() => navigate("/"), 1500);
     } catch (err) {
+      console.error(err.response?.data); // see backend error
       setError(err.response?.data?.message || "Failed to create report");
     }
   };

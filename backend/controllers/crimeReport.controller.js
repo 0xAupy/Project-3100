@@ -27,8 +27,20 @@ export const getReportById = async (req, res) => {
 // POST create new report
 export const createReport = async (req, res) => {
   try {
+    // 1️⃣ Ensure user is logged in
+    if (!req.user) {
+      return res.status(401).json({ message: "You must be logged in" });
+    }
+
+    // 2️⃣ Ensure user is verified
+    if (!req.user.isAccountverified) {
+      return res
+        .status(403)
+        .json({ message: "You must verify your email to create reports" });
+    }
+
     const { title, crimeType, area, location, description } = req.body;
-    const userId = req.user ? req.user._id : null;
+    const userId = req.user._id;
 
     const newReport = new CrimeReport({
       title,
@@ -37,7 +49,7 @@ export const createReport = async (req, res) => {
       location,
       description,
       userId,
-      image: req.file ? `/uploads/${req.file.filename}` : null, // ✅ save path
+      image: req.file ? `/uploads/${req.file.filename}` : null,
     });
 
     await newReport.save();
@@ -48,31 +60,17 @@ export const createReport = async (req, res) => {
 };
 
 // DELETE a report by ID
-// export const deleteReport = async (req, res) => {
-//   try {
-//     const report = await CrimeReport.findById(req.params.id);
-//     if (!report) {
-//       return res.status(404).json({ message: "Report not found" });
-//     }
+export const deleteReport = async (req, res) => {
+  try {
+    const report = await CrimeReport.findById(req.params.id);
+    if (!report) return res.status(404).json({ message: "Report not found" });
 
-//     // Check if the user is the owner of the report or an admin
-//     if (
-//       report.userId.toString() !== req.user._id.toString() &&
-//       req.user.role !== "admin"
-//     ) {
-//       return res.status(403).json({
-//         message: "Not authorized to delete this report",
-//       });
-//     }
-
-//     // Delete the report
-//     await CrimeReport.findByIdAndDelete(req.params.id);
-
-//     res.json({ message: "Report deleted successfully" });
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
+    await report.deleteOne();
+    res.json({ message: "Report deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
 
 // POST /reports/:id/upvote
 export const upvoteReport = async (req, res) => {

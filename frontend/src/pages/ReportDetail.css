@@ -74,20 +74,35 @@
   color: #777;
 }
 
-.comment button {
-  margin-top: 8px;
-  padding: 6px 10px;
+.comment {
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #fafafa;
+  margin-bottom: 12px;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative; /* make positioning easier */
+}
+
+.comment .delete-comment-btn {
+  position: absolute;
+  top: 12px; /* aligns with the top padding of the comment */
+  right: 16px; /* aligns with right padding of the comment */
+  padding: 4px 10px;
   border: none;
-  border-radius: 4px;
-  background-color: #e74c3c;
+  border-radius: 6px;
+  background-color: #dc3545;
   color: white;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.comment button:hover {
-  background-color: #c0392b;
+.comment .delete-comment-btn:hover {
+  background-color: #b02a37;
 }
 
 /* Comment form */
@@ -122,6 +137,24 @@
 }
 
 .comment-form button:hover {
+  background-color: #b02a37;
+}
+
+.delete-report-btn {
+  display: block; /* makes it act like a block element */
+  margin: 16px auto; /* centers it horizontally with some top/bottom spacing */
+  padding: 16px 16px; /* smaller padding for less width */
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 24px;
+  background-color: #dc3545;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.delete-report-btn:hover {
   background-color: #b02a37;
 }
 

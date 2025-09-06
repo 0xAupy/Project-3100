@@ -28,16 +28,6 @@ export default function ReportDetail() {
       .catch(() => setError("Failed to load comments"));
   }, [id]);
 
-  // const handleDeleteReport = async () => {
-  //   if (!window.confirm("Are you sure you want to delete this report?")) return;
-  //   try {
-  //     await api.delete(`/reports/${id}`);
-  //     navigate("/");
-  //   } catch (err) {
-  //     setError(err.response?.data?.message || "Failed to delete report");
-  //   }
-  // };
-
   const handleAddComment = async (e) => {
     e.preventDefault();
     try {
@@ -126,11 +116,27 @@ export default function ReportDetail() {
 
         <small>Reported on {new Date(report.createdAt).toLocaleString()}</small>
 
-        {/* {user && report.userId === user.id && (
-          <button className="delete-report-btn" onClick={handleDeleteReport}>
+        {user?.role === "admin" && (
+          <button
+            className="delete-report-btn"
+            onClick={async () => {
+              if (
+                !window.confirm("Are you sure you want to delete this report?")
+              )
+                return;
+              try {
+                await api.delete(`/reports/${id}`);
+                navigate("/"); // go back to homepage after deletion
+              } catch (err) {
+                setError(
+                  err.response?.data?.message || "Failed to delete report"
+                );
+              }
+            }}
+          >
             Delete Report
           </button>
-        )} */}
+        )}
 
         <section className="comments-section">
           <h3>Comments</h3>
@@ -143,6 +149,29 @@ export default function ReportDetail() {
                 Posted by <strong>{c.userId?.name || "Unknown"}</strong> on{" "}
                 {new Date(c.createdAt).toLocaleString()}
               </small>
+
+              {/* Admin delete button */}
+              {user?.role === "admin" && (
+                <button
+                  className="delete-comment-btn"
+                  onClick={async () => {
+                    if (!window.confirm("Delete this comment?")) return;
+                    try {
+                      await api.delete(`/reports/${id}/comments/${c._id}`);
+                      setComments((prev) =>
+                        prev.filter((com) => com._id !== c._id)
+                      );
+                    } catch (err) {
+                      alert(
+                        err.response?.data?.message ||
+                          "Failed to delete comment"
+                      );
+                    }
+                  }}
+                >
+                  Delete
+                </button>
+              )}
             </div>
           ))}
 

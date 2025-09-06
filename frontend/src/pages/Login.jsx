@@ -2,15 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./Login.css";
-import {
-  Mail,
-  Lock,
-  Eye,
-  EyeOff,
-  Shield,
-  Users,
-  AlertTriangle,
-} from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, Users, AlertTriangle } from "lucide-react";
 
 export default function Login() {
   const { login } = useContext(AuthContext);

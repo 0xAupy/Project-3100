@@ -34,21 +34,14 @@ export const addCommentToReport = async (req, res) => {
   }
 };
 
-// export const deleteComment = async (req, res) => {
-//   try {
-//     const comment = await Comment.findById(req.params.id);
-//     if (!comment) return res.status(404).json({ message: "Comment not found" });
+export const deleteComment = async (req, res) => {
+  try {
+    const comment = await Comment.findById(req.params.commentId);
+    if (!comment) return res.status(404).json({ message: "Comment not found" });
 
-//     // Check if the user is the owner of the comment
-//     if (comment.userId.toString() !== req.user._id.toString()) {
-//       return res
-//         .status(403)
-//         .json({ message: "Not authorized to delete this comment" });
-//     }
-
-//     await Comment.deleteOne({ _id: req.params.id });
-//     res.json({ message: "Comment deleted successfully" });
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
+    await comment.deleteOne();
+    res.json({ message: "Comment deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
