@@ -27,12 +27,10 @@ export const getReportById = async (req, res) => {
 // POST create new report
 export const createReport = async (req, res) => {
   try {
-    // 1️⃣ Ensure user is logged in
     if (!req.user) {
       return res.status(401).json({ message: "You must be logged in" });
     }
 
-    // 2️⃣ Ensure user is verified
     if (!req.user.isAccountverified) {
       return res
         .status(403)
@@ -49,7 +47,6 @@ export const createReport = async (req, res) => {
       location,
       description,
       userId,
-      image: req.file ? `/uploads/${req.file.filename}` : null,
     });
 
     await newReport.save();

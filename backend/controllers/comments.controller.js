@@ -24,6 +24,7 @@ export const addCommentToReport = async (req, res) => {
       return res.status(400).json({ message: "Comment text is required" });
     }
 
+    //save comment to database
     let newComment = new Comment({ comment, userId, reportId });
     await newComment.save();
 

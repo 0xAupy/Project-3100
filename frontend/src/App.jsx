@@ -67,6 +67,7 @@ function App() {
           />
 
           {/* fallback */}
+          {/* if user is not logged in, redirect to login page. if user is logged in, redirect to home page */}
           <Route
             path="*"
             element={

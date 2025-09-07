@@ -30,16 +30,20 @@ export const register = async (req, res) => {
       password: hashedPassword,
     });
 
-    // creating a token
+    // creating a jwt token
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
 
     // generating cookie
     res.cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      httpOnly: true, //JavaScript in frontend can’t access it, prevents XSS attacks.
+      secure: process.env.NODE_ENV === "production", //cookie only sent over HTTPS in production.
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict", //prevents CSRF attacks.
+      //"strict" (development): cookie only sent for same-site requests (frontend + backend same origin).
+
+      // "none" (production): allows cookies to be sent in cross-site requests (needed if your frontend and backend are on different domains).
+
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
@@ -198,7 +202,7 @@ export const verifyEmail = async (req, res) => {
         .json({ success: false, message: "User not found" });
     }
 
-    //check if ot is valid
+    //check if otp is valid
     if (user.verifyOtp === "" || user.verifyOtp != otp) {
       return res.status(400).json({ success: false, message: "Invalid OTP" });
     }
@@ -269,7 +273,7 @@ export const sendResetOtp = async (req, res) => {
 
 //reset password
 export const resetPassword = async (req, res) => {
-  const { otp, newPassword, email } = req.body; // Add email (or another identifier)
+  const { otp, newPassword, email } = req.body;
 
   if (!otp || !newPassword || !email) {
     return res.status(400).json({
@@ -279,7 +283,6 @@ export const resetPassword = async (req, res) => {
   }
 
   try {
-    // Find user by email (or another OTP-linked field)
     const user = await User.findOne({ email });
 
     if (!user) {
@@ -289,7 +292,6 @@ export const resetPassword = async (req, res) => {
       });
     }
 
-    // Check OTP validity
     if (user.resetOtp !== otp) {
       return res.status(400).json({
         success: false,
