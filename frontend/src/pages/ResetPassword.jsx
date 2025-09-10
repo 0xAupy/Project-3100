@@ -9,8 +9,7 @@ import {
   Users,
   KeyRound,
 } from "lucide-react";
-import "./ResetPassword.css"; // Reuse the Login styles for consistency
-// import logoImage from "../assets/shield.png"; // same logo as login
+import "./ResetPassword.css";
 
 export default function ResetPassword() {
   const { sendResetOtp, resetPassword } = useContext(AuthContext);
@@ -58,9 +57,6 @@ export default function ResetPassword() {
     <div className="layout-root">
       <div className="login-wrapper">
         <div className="login-header">
-          {/* <div className="logo-circle">
-            <img src={logoImage} alt="Logo" className="logo-img" />
-          </div> */}
           <h1>Crime Alert</h1>
           <p>Stay alert and stay safe from crimes around you</p>
         </div>

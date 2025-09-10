@@ -1,4 +1,3 @@
-// src/pages/ReportDetail.jsx
 import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../services/api";
